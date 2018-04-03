@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <menuitem id="fleet_requisition_main_menu" name="Fleet Requisition"/>
+        <menuitem id="fleet_requisition_sub_menu" name="Fleet Requisition" parent="fleet_requisition_main_menu"/>
+        <record id="fleet_requisition_form_view" model="ir.ui.view">
+            <field name="name">fleet.requisition.form</field>
+            <field name="model">fleet.requisition</field>
+            <field name="arch" type="xml">
+
+                <form string="Fleet Requisition List View">
+                    <header>
+                        <button string="Make Request" name="action_request" states="request" type="object" class="oe_highlight"/>
+                        <button string="Approved" name="action_approved" states="approval" type="object" groups="fleet_extension.fleet_requisition_group_manager" class="oe_highlight"/>
+                        <button string="Denied" name="action_denied" states="approval" type="object" groups="fleet_extension.fleet_requisition_group_manager" class="oe_highlight"/>
+                        <button string="Reset" name="action_reset" states="approved,denied" type="object" groups="fleet_extension.fleet_requisition_group_manager" class="oe_default"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="from_time"/>
+                                <field name="to_time"/>
+                            </group>
+                            <group>
+                            <field name="requisition_by"/>
+                            <field name="approve_vehicle"/></group>
+                            <div groups="fleet_extension.fleet_requisition_group_manager">
+                                <separator string="Comment by Manager"/>
+                                <field name="comment" placeholder="e.g. Report to the next month..."/>
+                            </div>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="fleet_requisition_tree_view" model="ir.ui.view">
+            <field name="name">fleet.requisition.tree</field>
+            <field name="model">fleet.requisition</field>
+            <field name="arch" type="xml">
+                <tree string="Fleet Requisition">
+                    <field name="from_time"/>
+                    <field name="to_time"/>
+                    <field name="requisition_by"/>
+                    <field name="comment"/>
+                    <field name="approve_vehicle"/>
+                </tree>
+            </field>
+        </record>
+        <record id="fleet_requisition_kanban_view" model="ir.ui.view">
+            <field name="name">fleet.requisition.kanban</field>
+            <field name="model">fleet.requisition</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <kanban class="o_fleet_requisition_kanban">
+                    <field name="from_time"/>
+                    <field name="to_time"/>
+                    <field name="requisition_by"/>
+                    <field name="comment"/>
+                    <field name="approve_vehicle"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <span>
+                                        <img t-att-src="kanban_image('hr.employee', 'image_medium', record.id)" t-att-title="record.id" class="oe_kanban_avatar pull-left mr4"/>
+                                    </span>
+                                </div>
+                                <div class="oe_kanban_details">
+
+                                    <span>
+                                        <div class="o_kanban_record_headings">
+                                            <strong style="padding-left:2px" class="o_kanban_record_title"><field name="requisition_by"/></strong>
+                                            <span class="pull-right">
+                                                <field name="state" widget="kanban_label_selection" options="{'classes': {'request': 'default', 'approved': 'success','denied': 'danger'}}"/>
+                                            </span>
+                                        </div>
+                                        <div class="text-muted o_kanban_record_subtitle">
+                                            <t t-esc="record.comment.value"/>
+                                        </div>
+                                    </span>
+
+                                </div>
+                                <fleet_requisition class="mt4 mb8"/>
+                                <div class="o_kanban_record_bottom mt8 mb4">
+                                    <div t-attf-class="oe_kanban_bottom_left #{record.from_time.value? 'mt8 mb4': ''}">
+                                        <table class="text-right" t-if="record.from_time.value">
+                                            <tr>
+                                                <td style="padding-bottom:4px"><small class="text-muted">from</small></td>
+                                                <td style="padding: 0 0 4px 4px"><t t-esc="record.from_time.value"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><small class="text-muted">to</small></td>
+                                                <td style="padding-left:4px"><t t-esc="record.to_time.value"/></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <record id="fleet_requisition_act" model="ir.actions.act_window">
+            <field name="name">Fleet</field>
+            <field name="res_model">fleet.requisition</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+        <menuitem id="fleet_requisition_child_menu" action="fleet_requisition_act" name="Fleet List" parent="fleet_requisition_sub_menu"/>
+    </data>
+</odoo>

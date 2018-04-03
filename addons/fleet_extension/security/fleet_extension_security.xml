@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="fleet_requisition_group_user" model="res.groups">
+        <field name="name">Requisition User</field>
+    </record>
+    <record id="fleet_requisition_group_manager" model="res.groups">
+        <field name="name">Requisition Manager</field>
+
+    </record>
+</odoo>

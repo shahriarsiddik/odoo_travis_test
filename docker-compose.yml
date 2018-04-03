@@ -1,0 +1,32 @@
+version: '2'
+services:
+
+  web:
+    build: .
+    restart: always
+    image: odoo_eleven_server
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - .:/usr/src/app
+      - ./odoo.conf:/etc/odoo.conf
+    command: python odoo-bin -c /etc/odoo.conf --xmlrpc-port 8069
+    links:
+      - db
+
+db:
+    image: postgres:9.4
+    environment:
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+
+volumes:
+  odoo-web-data:
+  odoo-db-data:
