@@ -4,7 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$/docker-compose.yml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ac81bc-89dd-474e-b2d6-4e87e828b9e3" name="Default" comment="" />
+    <list default="true" id="81ac81bc-89dd-474e-b2d6-4e87e828b9e3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,8 +96,8 @@
       <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+            <state relative-caret-position="60">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="5" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -158,7 +162,7 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -257,7 +261,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/shahriar/Work/Projects/shahriar-project/shahriar_blog_odoo/odoo-eleven-server/addons_custom/website_blog_mediumish/static/lib/css/bootstrap.min.css&#10;boots&#9;FILE&#9;file:///home/shahriar/Work/Projects/shahriar-project/shahriar_blog_odoo/odoo-eleven-server/addons_custom/website_blog_mediumish/static/lib/js/bootstrap.min.js&#10;website_sale&#9;FILE&#9;file:///home/shahriar/Work/Projects/shahriar-project/shahriar_blog_odoo/odoo-eleven-server/addons/website_sale_comparison/models/website_sale_comparison.py" />
@@ -360,6 +364,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -600,8 +609,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        <state relative-caret-position="60">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="5" selection-end-column="36" />
           <folding />
         </state>
       </provider>
